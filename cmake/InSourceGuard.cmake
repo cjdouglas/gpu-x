@@ -1,0 +1,10 @@
+get_filename_component(SRC_DIR "${CMAKE_SOURCE_DIR}" REALPATH)
+get_filename_component(BINARY_DIR "${CMAKE_BINARY_DIR}" REALPATH)
+
+if("${SRC_DIR}" STREQUAL "${BINARY_DIR}")
+  message("######################################################")
+  message("Warning: in-source builds are disabled")
+  message("Please create a separate build directory")
+  message("######################################################")
+  message(FATAL_ERROR "Quitting configuration")
+endif()

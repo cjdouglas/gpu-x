@@ -1,0 +1,63 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 16,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "build",
+      "hidden": true,
+      "binaryDir": "build"
+    },
+    {
+      "name": "dev-lint",
+      "hidden": true,
+      "cacheVariables": {
+        "GPUX_DEV_LINT": "ON"
+      }
+    },
+    {
+      "name": "dev-test",
+      "hidden": true,
+      "cacheVariables": {
+        "GPUX_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "vendor-amd",
+      "hidden": true,
+      "cacheVariables": {
+        "GPUX_VENDOR": "AMD"
+      }
+    },
+    {
+      "name": "vendor-nvidia",
+      "hidden": true,
+      "cacheVariables": {
+        "GPUX_VENDOR": "NVIDIA"
+      }
+    },
+    {
+      "name": "windows-amd",
+      "displayName": "Windows AMD",
+      "inherits": ["build", "vendor-amd"],
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "windows-nvidia",
+      "displayName": "Windows NVIDIA",
+      "inherits": ["build", "vendor-nvidia"],
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    }
+  ]
+}

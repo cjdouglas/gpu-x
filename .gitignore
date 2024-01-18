@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# IDE files
+.vs/
+.vscode/
+CMakeSettings.json
+CMakeUserPresets.json
+
+# CMake build artifacts
+out/
+build/
